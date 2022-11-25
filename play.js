@@ -12,35 +12,18 @@
 *
 */
 
+// Imports Node's Net library.
+const { connect } = require("./client.js");
 const net = require("net");
+// imports Node's process Library.
 const { stderr } = require("process");
+// imports the connection function from client.js
 const { conn } = require('./client.js');
+// Imports the setupINput function in input.js
+const { setupInput } = require('./input.js');
 
-// setup interface to handle user input from stdin
-
-const setupInput = function () {
-  const stdin = process.stdin;
-  stdin.setRawMode(true);
-  stdin.setEncoding("utf8");
-  stdin.resume();
-
-  stdin.on("data", handleUserInput);
-
-
-  return stdin;
-};
-
-// Handling User Input
-const handleUserInput = function() {
-  process.stdin.on('data', (key) => {
-    // If user hits ctrl + C, end the program.
-    if (key === '\u0003') {
-      console.log("You have exited Snek. Bye for now!");
-      //conn.write('Player has left the game');
-      process.exit();
-    }
-  });
-};
+console.log("Conecting ...");
+connect();
 
 setupInput();
 
