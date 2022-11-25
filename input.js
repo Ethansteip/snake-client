@@ -38,6 +38,18 @@ const handleUserInput = function() {
     if (key === 'd') {
       connection.write("Move: right");
     }
+    // if user presses the i key, print zoom to the server
+    if (key === 'i') {
+      connection.write("Say: zoom");
+    }
+    // if user presses the o key, print zoom to the server
+    if (key === 'o') {
+      connection.write("Say: snek");
+    }
+    // if user presses the p key, print zoom to the server
+    if (key === 'p') {
+      connection.write("Say: snek");
+    }
   });
 };
 
