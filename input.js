@@ -1,3 +1,10 @@
+/*
+* input.js - handles all the user input for the snake game.
+*/
+
+
+// Import commands from contants
+const { MOVE_UP, MOVE_DOWN, MOVE_LEFT, MOVE_RIGHT, SAY_ZOOM, SAY_SNEK } = require("./constants");
 
 // Store the actice TCP connection object.
 let connection;
@@ -24,31 +31,27 @@ const handleUserInput = function() {
     }
     // If user presses "W", write "Move: up".
     if (key === 'w') {
-      connection.write("Move: up");
+      connection.write(MOVE_UP);
     }
     // If user presses "a", write "Move: up".
     if (key === 'a') {
-      connection.write("Move: left");
+      connection.write(MOVE_LEFT);
     }
     // If user presses "s", write "Move: up".
     if (key === 's') {
-      connection.write("Move: down");
+      connection.write(MOVE_DOWN);
     }
     // If user presses "d", write "Move: up".
     if (key === 'd') {
-      connection.write("Move: right");
+      connection.write(MOVE_RIGHT);
     }
     // if user presses the i key, print zoom to the server
     if (key === 'i') {
-      connection.write("Say: zoom");
+      connection.write(SAY_ZOOM);
     }
     // if user presses the o key, print zoom to the server
     if (key === 'o') {
-      connection.write("Say: snek");
-    }
-    // if user presses the p key, print zoom to the server
-    if (key === 'p') {
-      connection.write("Say: snek");
+      connection.write(SAY_SNEK);
     }
   });
 };

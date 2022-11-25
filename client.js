@@ -1,27 +1,24 @@
 /*
-* Snake Game - building a snake game using TCP and Nodes "Net" library.
+* client.js - connects to the Snek game server.
 */
- 
- 
-/*
-*
-* Function Name - and a brief description of what it does
-*
-* @param {string} argument name - information it holds
-* @param {string} argument name - information it holds
-*
-*/
- 
 
 
 // Imports Node's Net library.
 const net = require("net");
+// Import the IP and PORT variables
+const { IP, PORT } = require("./constants");
 
-// establishes a connection with the game server
+/*
+*
+* connect - establishes a connection with the game server
+*
+*
+*/
+
 const connect = function() {
   const conn = net.createConnection({
-    host: "localhost",
-    port: "50541"
+    host: IP,
+    port: PORT
   });
 
   // Print a message to the client as soon as a connection has been made to the server.
