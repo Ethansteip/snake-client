@@ -23,6 +23,12 @@ const connect = function () {
     port: "50541"
   });
 
+  // Print a message to the client as soon as a connection has been made to the server.
+  conn.on("connect", (data) => {
+    console.log("🐍 Connection Establish - welcome to snek 🐍");
+    conn.write("Name: BIR");
+  });
+
 
   // When connecting to the local snake server, print a message to the client.
   conn.on('data', (data) => {
