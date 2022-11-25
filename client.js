@@ -29,8 +29,17 @@ const connect = function () {
     conn.write("Name: BIR");
   });
 
+  // //Once connected move the snake up.
+  // conn.on("connect", (data) => {
+
+  //   setInterval(() => {
+  //     conn.write("Move: up");
+  //   }, 500);
+  // });
+
 
   // When connecting to the local snake server, print a message to the client.
+  // Also, send our name to the host server.
   conn.on('data', (data) => {
     console.log(data.toString());
     conn.end();
