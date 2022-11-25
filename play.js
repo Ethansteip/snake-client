@@ -12,18 +12,15 @@
 *
 */
 
-// Imports Node's Net library.
-const { connect } = require("./client.js");
-const net = require("net");
-// imports Node's process Library.
-const { stderr } = require("process");
+// // Imports Node's Net library.
+// const net = require("net");
+// // imports Node's process Library.
+// const { stderr } = require("process");
 // imports the connection function from client.js
-const { conn } = require('./client.js');
+const { connect } = require("./client.js");
 // Imports the setupINput function in input.js
 const { setupInput } = require('./input.js');
 
 console.log("Conecting ...");
-connect();
-
-setupInput();
+setupInput(connect());
 
